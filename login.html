@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="Styles.css">
+    <title>CivicAlert</title>
+    <link rel="icon" href="emergency.png" type="image/png">
+</head>
+<body>
+
+<div class="header">
+    <img src="emergency.png" alt="Emergency Icon" class="header-icon">
+    <div>
+        <h1>CivicAlert</h1>
+        <p>Your Safety Our Priority</p>
+    </div>
+</div>
+
+<div class="container">
+    <div class="login-card">
+
+        <!-- TOGGLE BUTTONS -->
+        <div class="toggle-group">
+            <button class="toggle-btn active" id="adminToggle" onclick="switchForm('admin')">Admin</button>
+            <button class="toggle-btn" id="responderToggle" onclick="switchForm('responder')">First Responder</button>
+        </div>
+
+        <!-- ADMIN FORM -->
+        <div id="admin-form">
+            <h2>Admin Login</h2>
+            <p>Authorised personnel only. Activity is logged.</p>
+            <div class="field">
+                <label>Admin Email</label>
+                <input type="email" id="admin-email" placeholder="admin@civicalert.gov">
+            </div>
+            <div class="field">
+                <label>Password</label>
+                <input type="password" id="admin-password" placeholder="••••••••">
+            </div>
+            <button class="btn-login" onclick="login('Admin')">Log In to Dashboard</button>
+        </div>
+
+        <!-- FIRST RESPONDER FORM -->
+        <div id="responder-form" style="display:none;">
+            <h2>First Responder Login</h2>
+            <p>Access verified incidents assigned to your unit.</p>
+            <div class="field">
+                <label> ID</label>
+                <input type="text" id="responder-id" placeholder="Enter Unit ID">
+            </div>
+            <div class="field">
+                <label>Password</label>
+                <input type="password" id="responder-password" placeholder="••••••••">
+            </div>
+            <button class="btn-login" onclick="login('FirstResponder')">Log In to Dashboard</button>
+        </div>
+
+    </div>
+</div>
+
+<div class="Copyright">
+    <p>2026 CivicAlert System. All rights reserved.</p>
+</div>
+
+<script>
+function switchForm(role) {
+    const adminForm = document.getElementById('admin-form');
+    const responderForm = document.getElementById('responder-form');
+    const adminToggle = document.getElementById('adminToggle');
+    const responderToggle = document.getElementById('responderToggle');
+
+    if (role === 'admin') {
+        adminForm.style.display = 'block';
+        responderForm.style.display = 'none';
+        adminToggle.classList.add('active');
+        responderToggle.classList.remove('active');
+    } else {
+        adminForm.style.display = 'none';
+        responderForm.style.display = 'block';
+        responderToggle.classList.add('active');
+        adminToggle.classList.remove('active');
+    }
+}
+
+function login(role) {
+    alert(role + ' login submitted!');
+   
+}
+</script>
+
+<script src="scripts/CivicAlert.js"></script>
+</body>
+</html>

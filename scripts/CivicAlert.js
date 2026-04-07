@@ -364,6 +364,85 @@ window.addEventListener("load", function () {
 ////////////////////////////*Event Listeners*/
 
 
+/**login logic */
+
+const users = {
+    admins: [
+        { email: "admin@civicalert.gov", password: "admin123" }
+    ],
+    responders: [
+        { id: "001", password: "responder1" },
+        { id: "002", password: "responder2" }
+    ]
+};
+
+function login(role) {
+    if (role === 'Admin') {
+        const email = document.getElementById('admin-email').value.trim();
+        const password = document.getElementById('admin-password').value.trim();
+
+        // Check fields aren't empty
+        if (!email || !password) {
+            showError('Please fill in all fields.');
+            return;
+        }
+
+        // Check credentials
+        const found = users.admins.find(u => u.email === email && u.password === password);
+
+        if (found) {
+            // Save session
+            sessionStorage.setItem('loggedInRole', 'Admin');
+            sessionStorage.setItem('loggedInUser', email);
+
+            // Redirect to main app
+            window.location.href = 'admin.html';
+        } else {
+            showError('Invalid email or password.');
+        }
+    }
+
+    if (role === 'FirstResponder') {
+        const id = document.getElementById('responder-id').value.trim();
+        const password = document.getElementById('responder-password').value.trim();
+
+        if (!id || !password) {
+            showError('Please fill in all fields.');
+            return;
+        }
+
+        const found = users.responders.find(u => u.id === id && u.password === password);
+
+        if (found) {
+            
+            // Redirect to main page
+            window.location.href = 'firstresponder.html';
+        } else {
+            showError('Invalid ID or password.');
+        }
+    }
+}
+
+function showError(message) {
+    // Remove existing error if any
+    const existing = document.querySelector('.error-msg');
+    if (existing) existing.remove();
+
+    const err = document.createElement('p');
+    err.className = 'error-msg';
+    err.textContent = message;
+    err.style.color = 'red';
+    err.style.fontSize = '13px';
+    err.style.marginTop = '10px';
+    err.style.textAlign = 'center';
+
+    document.querySelector('.login-card').appendChild(err);
+
+    // Auto remove after 3 seconds
+    setTimeout(() => err.remove(), 3000);
+}
+
+
 
 
 
