@@ -9,7 +9,7 @@ app.use(express.static(path.join(__dirname)));
 
 
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'menu.html'));
+  res.sendFile(path.join(__dirname, 'Menu.html'));
 });
 
 app.listen(PORT, () => {
