@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="Styles.css">
+    <title>CivicAlert</title>
+    <link rel="icon" href="emergency.png" type="image/png">
+
+</head>
+<body>
+  <div id="loading-screen">
+    <div class="loader-container">
+        <img src="emergency.png" class="loader-icon">
+        <h1>CivicAlert</h1>
+        <p>Initializing system...</p>
+
+        <div class="progress-bar">
+            <div class="progress"></div>
+        </div>
+    </div>
+  </div>
+
+  <!--TABS TABLE -->
+    <div class="header">
+        <img src="emergency.png" alt="Emergency Icon" class="header-icon">
+        <div>
+            <h1>CivicAlert</h1>
+            <p>Your Safety Our Priority</p>
+        </div>
+    </div>
+
+ 
+      <div class="button-group">
+   <button class="tablink active" onclick="Page(event, 'citizen')" id="defaultOpen">Citizen</button>
+   <button class="tablink" onclick="Page(event, 'Admin')">Admin</button>
+   <button class="tablink" onclick="Page(event, 'FirstResponder')">First Responder</button>
+   <button class="tablink" onclick="Page(event, 'About')">About</button>
+</div>
+
+
+<div class="container"> 
+    <!-- Citizen SECTION -->
+            <div id="citizen" class="tabcontent">
+                    <div class="section active" id="citizen-section">
+                    <h2>Report Incident</h2>
+                    <form id="citizen-form">
+                        <div class="form-group">
+                            <label for="citizen-name">Full Name</label>
+                            <input type="text" id="citizen-name" required placeholder="Enter your full name">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="citizen-username">Username</label>
+                            <input type="text" id="citizen-username" required placeholder="Enter your username">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="citizen-password">Password</label>
+                            <input type="password" id="citizen-password" required placeholder="Enter your password">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="incident-type">Incident Type</label>
+                            <select id="incident-type" required>
+                                <option value="">Select an incident type</option>
+                                <option value="accident">Traffic Accident</option>
+                                <option value="fire">Fire</option>
+                                <option value="theft">Theft</option>
+                                <option value="medical">Medical Emergency</option>
+                                <option value="vandalism">Vandalism</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="incident-location">Location</label>
+                            <input type="text" id="incident-location" required placeholder="Enter incident location">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="incident-description">Description</label>
+                            <textarea id="incident-description" required placeholder="Describe the incident in detail"></textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary">Report Incident</button>
+                    </form>
+
+                    <div id="citizen-incidents"></div>
+                </div> 
+            </div>
+
+    <!-- Admin SECTION -->
+               <div id="Admin" class="tabcontent">
+                    <div class="section active" id="Admin-section">
+                   <h2>Admin Dashboard</h2>
+                    <p>Your report is being viewed</p>   
+                    <div class="tabs">
+                        <button class="tab active" data-tab="verify">Verify Incidents</button>
+                        <button class="tab" data-tab="stats">Statistics</button>
+                    </div>
+            <div class="tab-wrapper">
+                    <div id="verify-tab" class="tab-content active">
+                        <div id="Admin-incidents"></div>
+                    </div>
+
+                  <div id="stats-tab" class="tab-content">
+                        <div class="stats">
+
+                            <div class="stat-card">
+                                <div class="stat-number" id="total-incidents">0</div>
+                                <div class="stat-label">Total Incidents</div>
+                            </div>
+
+                            <div class="stat-card">
+                                <div class="stat-number" id="pending-incidents">0</div>
+                                <div class="stat-label">Pending Verification</div>
+                            </div>
+
+                            <div class="stat-card">
+                                <div class="stat-number" id="verified-incidents">0</div>
+                                <div class="stat-label">Verified</div>
+                            </div>
+                        </div>
+                    </div>
+                  </div>  
+
+                </div>
+                </div>  
+
+   <!--First Responder SECTION-->
+     <div id="FirstResponder" class="tabcontent">
+       <div class="section active" id="FirstResponder-section">
+                    <h2>FirstResponder</h2>
+                    <p>Rapid Response. Real Impact.</p>
+                    <h3>Verified Incidents to Respond</h3>
+              <div id="FirstResponder-incidents"></div>
+        </div>
+      </div>
+
+    <!--About SECTION-->
+    <div id="About" class="tabcontent">
+      <h3>About</h3>
+      <p>Who we are and what we do.</p>
+    </div>
+  </div>
+</div>
+</div>  
+        <div class= "Copyright">
+            <p> 2026 CivicAlert System. All rights reserved.</p>
+        </div>
+   <script src="CivicAlert.js"></script>
+</body>
+</html> 

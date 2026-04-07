@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="testerStyle.css">
+    <title>Incident Reporting System</title>
+    
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🚨 Incident Reporting System</h1>
+            <p>Efficient incident management and verification</p>
+        </div>
+
+        <div class="main-content">
+            <div class="sidebar">
+                <h3>👤 User Type</h3>
+                <button class="user-option active" data-role="citizen">Citizen</button>
+                <button class="user-option" data-role="admin">Admin</button>
+                <button class="user-option" data-role="first-responder">First Responder</button>
+            </div>
+
+            <div class="content">
+                <!-- CITIZEN SECTION -->
+                <div class="section active" id="citizen-section">
+                    <h2>Report an Incident</h2>
+                    <form id="citizen-form">
+
+                        <div class="form-group">
+                            <label for="citizen-name">Full Name</label>
+                            <input type="text" id="citizen-name" required placeholder="Enter your full name">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="citizen-username">Username</label>
+                            <input type="text" id="citizen-username" required placeholder="Enter your username">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="citizen-password">Password</label>
+                            <input type="password" id="citizen-password" required placeholder="Enter your password">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="incident-type">Incident Type</label>
+                            <select id="incident-type" required>
+                                <option value="">Select an incident type</option>
+                                <option value="accident">Traffic Accident</option>
+                                <option value="fire">Fire</option>
+                                <option value="theft">Theft</option>
+                                <option value="medical">Medical Emergency</option>
+                                <option value="vandalism">Vandalism</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="incident-location">Location</label>
+                            <input type="text" id="incident-location" required placeholder="Enter incident location">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="incident-description">Description</label>
+                            <textarea id="incident-description" required placeholder="Describe the incident in detail"></textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary">Report Incident</button>
+                        
+                    </form>
+                    <div id="citizen-incidents"></div>
+                </div>
+
+                <!-- ADMIN SECTION -->
+                <div class="section" id="admin-section">
+                    <h2>Admin Dashboard</h2>
+                    <div class="tabs">
+                        <button class="tab active" data-tab="verify">Verify Incidents</button>
+                        <button class="tab" data-tab="stats">Statistics</button>
+                    </div>
+
+                    <div id="verify-tab" class="tab-content active">
+                        <div id="admin-incidents"></div>
+                    </div>
+
+                    <div id="stats-tab" class="tab-content">
+                        <div class="stats">
+                            <div class="stat-card">
+                                <div class="stat-number" id="total-incidents">0</div>
+                                <div class="stat-label">Total Incidents</div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-number" id="pending-incidents">0</div>
+                                <div class="stat-label">Pending Verification</div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-number" id="verified-incidents">0</div>
+                                <div class="stat-label">Verified</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FIRST RESPONDER SECTION -->
+                <div class="section" id="first-responder-section">
+                    <h2>Verified Incidents to Respond</h2>
+                    <div id="first-responder-incidents"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>&copy; 2026 Incident Reporting System. All rights reserved.</p>
+        </div>
+    </div>
+     <script src="testjs.js"></script>
+</body>
+</html>
