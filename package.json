@@ -1,0 +1,25 @@
+{
+  "name": "civicalert-2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "CivicAlert.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Madhatter246/Group7Project.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Madhatter246/Group7Project/issues"
+  },
+  "homepage": "https://github.com/Madhatter246/Group7Project#readme",
+  "dependencies": {
+    "express": "^5.2.1"
+  }
+}
