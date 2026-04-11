@@ -431,4 +431,22 @@
                 grid-template-columns: 1fr;
             }
         }
-  
+  .severity-low {
+    color: green;
+    font-weight: bold;
+}
+
+.severity-medium {
+    color: orange;
+    font-weight: bold;
+}
+
+.severity-high {
+    color: red;
+    font-weight: bold;
+}
+
+.severity-unknown {
+    color: gray;
+    font-weight: bold;
+}
